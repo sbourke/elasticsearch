@@ -33,6 +33,10 @@ public class RankEvalNamedXContentProvider implements NamedXContentProvider {
         List<NamedXContentRegistry.Entry> namedXContent = new ArrayList<>();
         namedXContent.add(
                 new NamedXContentRegistry.Entry(EvaluationMetric.class, new ParseField(PrecisionAtK.NAME), PrecisionAtK::fromXContent));
+        namedXContent.add(
+            new NamedXContentRegistry.Entry(EvaluationMetric.class, new ParseField(RecallAtK.NAME), RecallAtK::fromXContent));
+        namedXContent.add(
+            new NamedXContentRegistry.Entry(EvaluationMetric.class, new ParseField(MeanAveragePrecisionAtK.NAME), MeanAveragePrecisionAtK::fromXContent));
         namedXContent.add(new NamedXContentRegistry.Entry(EvaluationMetric.class, new ParseField(MeanReciprocalRank.NAME),
                 MeanReciprocalRank::fromXContent));
         namedXContent.add(new NamedXContentRegistry.Entry(EvaluationMetric.class, new ParseField(DiscountedCumulativeGain.NAME),
@@ -42,6 +46,10 @@ public class RankEvalNamedXContentProvider implements NamedXContentProvider {
 
         namedXContent.add(new NamedXContentRegistry.Entry(MetricDetail.class, new ParseField(PrecisionAtK.NAME),
                 PrecisionAtK.Detail::fromXContent));
+        namedXContent.add(new NamedXContentRegistry.Entry(MetricDetail.class, new ParseField(RecallAtK.NAME),
+            RecallAtK.Detail::fromXContent));
+        namedXContent.add(new NamedXContentRegistry.Entry(MetricDetail.class, new ParseField(MeanAveragePrecisionAtK.NAME),
+            MeanAveragePrecisionAtK.Detail::fromXContent));
         namedXContent.add(new NamedXContentRegistry.Entry(MetricDetail.class, new ParseField(MeanReciprocalRank.NAME),
                 MeanReciprocalRank.Detail::fromXContent));
         namedXContent.add(new NamedXContentRegistry.Entry(MetricDetail.class, new ParseField(DiscountedCumulativeGain.NAME),
